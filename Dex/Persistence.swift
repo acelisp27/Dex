@@ -8,8 +8,11 @@
 import CoreData
 
 struct PersistenceController {
+    // The thing that controls out database
     static let shared = PersistenceController()
 
+    
+    // The thing that controls our sample preview database
     @MainActor
     static let preview: PersistenceController = {
         let result = PersistenceController(inMemory: true)
