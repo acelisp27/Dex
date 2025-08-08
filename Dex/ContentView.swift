@@ -17,7 +17,7 @@ struct ContentView: View {
     ) private var pokedex
     
     @State private var searchText = ""
-    @State private var filterByFavorites = false
+    @State private var filterByFavorites: Bool = false
     
     let fetcher = FetchService()
     
@@ -81,7 +81,7 @@ struct ContentView: View {
             .onChange(of: searchText) {
                 pokedex.nsPredicate = dynamicPredicate
             }
-            onChange(of: filterByFavorites) {
+            .onChange(of: filterByFavorites) {
                 pokedex.nsPredicate = dynamicPredicate
             }
             .navigationDestination(for: Pokemon.self) { pokemon in
@@ -89,7 +89,7 @@ struct ContentView: View {
             }
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    Button {
+                    Button{
                         filterByFavorites.toggle()
                     } label: {
                         Label("Filter By Favorites", systemImage: filterByFavorites ? "star.fill" : "star")
@@ -123,7 +123,6 @@ struct ContentView: View {
                     pokemon.sprite = fetchedPokemon.sprite
                     pokemon.shiny = fetchedPokemon.shiny
                     
-
                     try viewContext.save()
                     
                     try viewContext.save()
