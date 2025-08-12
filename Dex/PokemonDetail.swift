@@ -64,6 +64,14 @@ struct PokemonDetail: View {
             }
             .padding()
             
+            Text("Stats")
+                .font(.title)
+                .padding(.bottom, -7)
+            
+            
+            
+            Stats(pokemon: pokemon)
+            
         }
         .navigationTitle(pokemon.name!.capitalized)
     }
