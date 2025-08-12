@@ -16,7 +16,7 @@ struct PokemonDetail: View {
     var body: some View {
         ScrollView {
             ZStack {
-                Image(.normalgrasselectricpoisonfairy)
+                Image(pokemon.background)
                     .resizable()
                     .scaledToFit()
                     .shadow(color: .black, radius: 10)
@@ -32,7 +32,7 @@ struct PokemonDetail: View {
                 }
                 
                 
-                }
+            }
             HStack {
                 ForEach(pokemon.types!, id: \.self) { type in
                     Text(type.capitalized)
